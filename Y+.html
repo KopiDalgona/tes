@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aion Y Plus</title>
+    <link rel="icon" href="logo1.jpeg" type="image/png"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+           emailjs.init("WjlAlZOWOOYdfq6F4",);
+        })();
+    </script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(155, 237, 248, 0.2);
+            color: #000;
+            padding: 5px;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to left, #dce6f76f, #b4b7bb56);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .hero img {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .specs, .colors {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .specs h2, .colors h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .specs-table, .colors-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .specs-table th, .specs-table td, .colors-table th, .colors-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .specs-table th, .colors-table th {
+            background-color: #222;
+            color: white;
+        }
+
+        .colors-table img {
+            width: 100px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .story {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .story h2 {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .hero img {
+                width: 100%;
+            }
+        }
+
+        .color-picker-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .color-selection {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .color-selection button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 20px;
+            background-color: #ddd;
+            color: #333;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .color-selection button.active {
+            background-color: #000;
+            color: white;
+        }
+
+        .color-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .color-option {
+            width: auto;
+            height: auto;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: border 0.3s ease;
+        }
+
+        .color-option img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .car-display img {
+            width: auto;
+            transition: opacity 1s ease;
+            opacity: 1;
+        }
+
+        .color-selection button.active {
+            background-color: #000;
+            color: white;
+        }
+
+        #car-image {
+            width: 70%;
+            transition: opacity 5s ease-in-out, transform 3s ease-in-out;
+            height: AUTO;
+        }
+        
+        /* WhatsApp Button Styles */
+        .whatsapp-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25d366;
+        color: white;
+        width: 50px;  /* Ukuran awal tombol */
+        height: 50px; /* Ukuran awal tombol */
+        border-radius: 50%;  /* Tombol bulat sebelum hover */
+        font-size: 0; /* Tidak ada teks awal */
+        transition: all 0.3s ease;  /* Transisi untuk transformasi */
+        z-index: 1000;
+        }
+
+        .whatsapp-icon {
+        font-size: 24px;  /* Ukuran ikon WhatsApp */
+        }
+
+        .whatsapp-text {
+        display: none;  /* Teks tersembunyi saat tidak di-hover */
+        margin-left: 10px;
+        font-size: 16px;
+        }
+
+        .whatsapp-button:hover {
+        width: 150px;  /* Ukuran tombol yang membesar */
+        height: 50px;  /* Jaga agar tinggi tetap sama, menjadi persegi panjang */
+        border-radius: 8px;  /* Mengubah bentuk dari bulat menjadi persegi dengan sudut sedikit membulat */
+        }
+
+        .whatsapp-button:hover .whatsapp-icon {
+        font-size: 28px;  /* Ukuran ikon yang sedikit membesar */
+        }
+
+        .whatsapp-button:hover .whatsapp-text {
+        display: inline;  /* Tampilkan teks WhatsApp saat di-hover */
+        font-size: 16px;
+        }
+
+        .car-display {
+            position: relative;
+            text-align: center;
+        }
+
+        .car-display img {
+            width: 100%;
+            max-width: auto;
+            display: block;
+            margin: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .car-poster {
+            position: relative;
+            width: 100%;
+            height: 700px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 20px;
+        }
+
+        .car-info {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+        }
+
+        .car-info h2, .car-info p {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .button-container a {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .test-drive-btn {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .test-drive-btn:hover {
+            background-color: #138496;
+        }
+
+        .brochure-btn {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .brochure-btn:hover {
+            background-color: #545b62;
+        }
+
+        #car-image{
+            width: 100%;
+        }
+
+        
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 40px auto;
+        }
+
+        label {
+          font-size: 16px;
+          font-weight: bold;
+          color: #333;
+          margin-bottom: 8px;
+          display: block;
+        }
+
+        select, input[type="text"], input[type="email"], input[type="tel"] {
+          width: 100%;
+          padding: 12px;
+          font-size: 14px;
+          border: 2px solid #ccc;
+          border-radius: 8px;
+          margin-bottom: 15px;
+          transition: border-color 0.3s ease;
+        }
+
+        .simulasi-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+            padding: 50px;
+        }
+
+        .simulasi, .benefit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .benefit:hover {
+            transition: 0.5s ;
+            background-image: url(benefit/Maintenance-scaled.webp);
+            opacity: inherit;
+        }
+
+        .simulasi:hover{
+            background-image: url(benefit/Pricelist-scaled.webp);
+            opacity: inherit;
+            transition: 0.5s;
+        } 
+
+        .simulasi {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Menempatkan elemen atas dan bawah */
+            align-items: flex-start; /* Rata kiri */
+            height: 150px; /* Atur tinggi container sesuai kebutuhan */
+            padding: 40px;
+            background-image: url(benefit/Pricelist-scaled.webp);
+            opacity: 0.5;
+            width: 48%;
+        }
+
+        .benefit{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Menempatkan elemen atas dan bawah */
+            align-items: flex-start; /* Rata kiri */
+            height: 150px; /* Atur tinggi container sesuai kebutuhan */
+            padding: 40px;
+            background-image: url(benefit/Maintenance-scaled.webp);
+            opacity: 0.5;
+            width: 48%;
+        }
+
+        .benefit-title {
+            margin: 0; /* Hapus margin bawaan */
+        }
+
+        @media (max-width: 768px) {
+            .carousel-hero img, .carousel-models img {
+                height: 200px;
+            }
+            .simulasi-container {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .simulasi, .benefit {
+                width: 100%;
+                height: 300px;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* popup */
+        /* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Modal Content */
+.modal-content {
+    background: white;
+    width: 80%;  /* Mengurangi ukuran di layar besar */
+    max-width: 700px; /* Batasi ukuran maksimal */
+    max-height: 79vh; /* Batasi tinggi agar tidak terlalu besar */
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    height: 100%;
+    position: fixed;
+}
+
+/* Tombol Close (X) */
+.close{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10000; /* Pastikan tombol berada di atas elemen lain */
+    background: none;
+    border: none;
+}
+
+/* Slide Styling */
+.modal-slides {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.modal-slides img {
+    max-width: 100%;
+    width: 100%;
+    height: 310px;
+}
+
+/* Setiap modal-body sebagai slide */
+.modal-body {
+    display: none;
+    width: 100%;
+}
+
+.modal-body.active {
+    display: block;
+}
+
+/* Navigasi Slide */
+button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Responsif untuk Layar Kecil */
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        max-width: 100%;
+        max-height: 90vh;
+    }
+}
+/* popup end */
+
+/* Footer Start */
+.footer {
+            background-color: #000;
+            padding: 40px 0;
+            font-family: Arial, sans-serif;
+        }
+        .footer-logo {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+        .call-center {
+            font-size: 14px;
+            color: #333;
+        }
+        .phone-number {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .footer h5 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .footer-list {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-list li {
+            margin-bottom: 5px;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+        }
+        
+        .social-icons i {
+            font-size: 20px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+        }
+        /* Footer End */
+        
+        .accordion-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: 500px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .accordion-item {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.5s ease;
+    position: relative;
+    cursor: pointer;
+    border-radius: 12px;
+    margin: 0 5px;
+    overflow: hidden;
+  }
+
+  .accordion-item.active {
+    flex: 5;
+  }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="heading">
+            <a href="index.html"><img src="LOGO.png" style="width: 15%;"></a>
+        </div>
+    </header>
+
+    <section class="car-poster" id="car-poster" style="background-image: url('poster y+/aion-y-plus.jpg');">
+        <div class="car-info">
+            <h1>AION Y Plus </h1>
+            <p>From (OTR JKT): Rp 419.000.000 - 479.000.000</p>
+            <div class="button-container">
+                <a href="https://wa.me/6288213303992?text=Halo%20saya%20ingin%20test%20mobil%20mobil%20Aion%3A%0ANama%3A%0ANo. Telfon%3A%0ATipe%20Mobil%3A" target="_blank" class="test-drive-btn">🚗 Book a Test Drive</a>
+                <a href="brosur/FA-FINAL-Flyer-AION-Y-Plus.pdf" class="brochure-btn" target="_blank">⬇️ Download Brochure</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="color-picker-section">
+    <div class="color-picker-section">
+        <div class="color-selection">
+            <button id="exterior-btn" class="active" onclick="toggleColorType('exterior')">EXTERIOR COLOR</button>
+            <button id="interior-btn" onclick="toggleColorType('interior')">INTERIOR COLOR</button>
+        </div>
+        
+        <div class="car-display">
+            <img id="car-image" src="Y+/Glamour-Black.webp" alt="Mobil" />
+        </div>
+
+        <div class="color-options" id="exterior-colors">
+            <div class="color-option" onclick="changeCarImage('Vitality Green')"><img src="Warna Y+/vitality-green-1.png" alt=""></div>
+            <div class="color-option" onclick="changeCarImage('Elegant Gray')"><img src="Warna Y+/elegant-gray.png" alt=""></div>
+            <div class="color-option" onclick="changeCarImage('Pure White')"><img src="Warna Y+/Pure-white-1.png" alt=""></div>
+            <div class="color-option" onclick="changeCarImage('Glamour Black')"><img src="Warna Y+/glamour-black-1.png" alt=""></div>
+            <div class="color-option" onclick="changeCarImage('Speedy Silver')"><img src="Warna Y+/speedy-silver-color.png" alt=""></div>
+            <div class="color-option" onclick="changeCarImage('2 Tone Pure White')"><img src="Warna Y+/Pure-white-black-roof.png" alt=""></div>
+            <div class="color-option" onclick="changeCarImage('2 Tone Vitality Green')"><img src="Warna Y+/vitality-green-black-roof.png" alt=""></div>
+        </div>
+
+    <div class="color-options" id="interior-colors" style="display: none;">
+        <div class="color-option" onclick="changeCarImage('enchanted forest')"><img src="interior y+/enchanted-forest.png"></div>
+        <div class="color-option" onclick="changeCarImage('fairy wonderland')"><img src="interior y+/fairy-wonderland.png"></div>
+    </div>
+
+    </section>
+
+    <div class="car-display">
+        <img id="car-image" src="Y+/ukuran.png" alt="Mobil" />
+    </div>
+
+
+    <div class="specs">
+        <h2>Spesifikasi Utama</h2>
+        <table class="specs-table">
+
+            <th>
+                
+            </th>
+
+            <th>
+                LUXURY
+            </th>
+
+            <th>
+                Exclusive
+            </th>
+
+            <tr>
+                <th>Dimensi (P x L x T)</th>
+                <td colspan="2">4.605 mm x 1.854 mm x 1.686 mm</td>
+                </tr>
+
+            <tr>
+                <th>Kapasitas Battery</th>
+                <td>75.3 KWH</td>
+                <td>64.5 KWH</td>
+            </tr>
+            <tr>
+                <th>Range</th>
+                <td>602 KM (NEDC)</td>
+                <td>505 KM (NEDC)</td>
+            </tr>
+            <tr>
+                <th>Bahan Kursi</th>
+                <td>Kulit Premium</td>
+                <td>Kulit Sintetik</td>
+            </tr>
+            <tr>
+                <th>Speaker</th>
+                <td colspan="2">9</td>
+            </tr>
+            <tr>
+                <th>Kursi Pijit</th>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr>
+                <th>Meja Belakang</th>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr>
+                <th>Kulkas</th>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr>
+                <th>Driver Monitoring System</th>
+                <td>✅</td>
+                <td>❌</td>
+            </tr>
+            <tr>
+                <th>Max DC Fast Charging Power (30-80%)(kW)</th>
+                <td>180</td>
+                <td>150</td>
+            </tr>
+            <tr>
+                <th>Fast Charging</th>
+                <td colspan="2">16 Min</td>
+            </tr>
+            
+        </table>
+    </div>
+
+    <!-- Image Accordion Section -->
+<div class="title1">
+    <h1 style="font-weight: bold; padding-left: 10%;">Unlimit Your Comfort</h1>
+    <p style="padding-left: 10%;"> Rasakan kenyamanan tanpa batas dalam setiap perjalanan Anda dengan dukungan ruang interior yang luas untuk relaksasi maksimal.</p>
+  </div>
+  
+  <!-- Accordion Images Section -->
+  <div class="accordion-container">
+    <div class="accordion-item" style="background-image: url('Y+/atas.jpg');"></div>
+    <div class="accordion-item" style="background-image: url('y+/blkg.png');"></div>
+    <div class="accordion-item" style="background-image: url('y+/dpn.png');"></div>
+    <div class="accordion-item" style="background-image: url('y+/int.png');"></div>
+    <div class="accordion-item" style="background-image: url('y+/smping.png');"></div>
+  </div>
+
+
+    <div class="simulasi-container">
+        <div class="simulasi">
+                <h1 class="simulasi-title">Simulasi</h1>
+                <a href="simulasi.html">Learn More ↗</h7></a>
+            </div>
+    
+        <div class="benefit">
+            <h1 class="benefit-title">Benefit</h1>
+            <a href="#" id="openModal"><h7>Learn More ↗</h7></a>
+        </div>
+    </div>
+
+    <!-- Modal Container -->
+<div id="popupModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span> <!-- Tombol X -->
+
+        <!-- Modal Slides -->
+        <div class="modal-slides">
+            <!-- Slide 1 -->
+            <div class="modal-body active">
+                <div class="modal-image">
+                    <h2>Benefit</h2>
+                    <img src="Popup/es3.jpg" alt="Mobil Listrik">
+                </div>
+                <div class="modal-text">
+                    <h3>Lifetime Warranty</h3>
+                    <p>Untuk setiap pembelian mobil AION Y Plus, AION V dan HYPTEC HT akan mendapatkan Lifetime Warranty yang mencakup baterai, motor elektrik, dan kontroler elektrik.</p>
+                    <br>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="modal-body">
+                <div class="modal-image">
+                    <h2>Benefit</h2>
+                    <img src="Popup/free-charger.jpg" alt="Baterai">
+                </div>
+                <div class="modal-text">
+                    <h3>Free Wall Charger</h3>
+                    <p>Instalasi charger dinding gratis berkapasitas 7 kW, memungkinkan mengisi daya kendaraan listrik dengan mudah langsung dari rumah. Nikmati kemudahan dan kenyamanan pengisian daya yang praktis, menjadikan penggunaan kendaraan listrik semakin efektif dan efisien.</p>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="modal-body">
+                <div class="modal-image">
+                    <h2>Benefit</h2>
+                    <img src="Popup/maintenance.jpg" alt="Interior">
+                </div>
+                <div class="modal-text">
+                    <h3>Vehicle Warranty</h3>
+                    <p>Garansi kendaraan secara menyeluruh selama 8 tahun atau hingga 160.000 kilometer, serta free service maintenance selama 5 tahun atau hingga 100.000 kilometer mencakup layanan dan pemeriksaan secara rutin agar kendaraan tetap dalam kondisi optimal.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="modal-navigation">
+            <button class="prev">&#8592;</button>
+            <span class="dots"></span>
+            <span class="dots"></span>
+            <button class="next">&#8594;</button>
+        </div>
+    </div>
+</div>
+
+    <div class="logo">
+    <a href="https://wa.me/6288213303992?text=Halo%20saya%20ingin%20menanyakan%20mengenai%20mobil%20Aion%3A%0ANama%3A%0ANo.%3A%0ATipe%20Mobil%3A" target="_blank" class="whatsapp-button">
+        <i class="bi bi-whatsapp whatsapp-icon"></i>
+        <span class="whatsapp-text">WhatsApp</span>
+    </a>
+    </div>
+
+    <!-- <section >
+        <form id="Forms">
+            <label for="fname">Nama:</label>
+            <input type="text" id="fname" name="fname" placeholder="Masukkan nama" required><br>
+            <label for="no">No. Telepon:</label>
+            <input type="tel" id="no" name="no" pattern="[0-9]{10,15}" placeholder="Masukkan nomor telepon" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Masukkan email" required><br>
+            <label for="Alamat">Berminat Test Drive di:</label>
+            <select id="Alamat" name="Alamat" required onchange="showAddressField()">
+                <option value="">Pilih lokasi...</option>
+                <option value="Dealer">Dealer</option>
+                <option value="Rumah">Rumah</option>
+                <option value="Kantor">Kantor</option>
+                <option value="Other">Lainnya</option>
+            </select><br><br>
+            <div id="otherAddress" style="display:none;">
+                <label for="otherLocation">Alamat:</label><br>
+                <input type="text" id="otherLocation" name="otherLocation" placeholder="Masukkan alamat" required><br><br>
+            </div>
+
+            <div id="addressSection" style="display:none;">
+                <label for="locationAddress">Alamat:</label><br>
+                <input type="text" id="addr" name="addr" placeholder="Masukkan alamat" required><br><br>
+            </div>
+
+            <div id="dealerAddress" style="display:none;">
+                <p><strong>Alamat Dealer:</strong> Jl. Pantai Indah Selatan No.1 2, RT.2/RW.3, Kapuk Muara, Kec. Penjaringan, Jakarta, Daerah Khusus Ibukota Jakarta 14440</p>
+                <p><a href="https://www.google.com/maps/dir//aion+pik/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x2e6a1dda627b442f:0xb46c68d7a17e5bf?sa=X&ved=1t:3061&ictx=111" target="_blank">Lihat di Google Maps</a></p>
+            </div>
+
+            <button type="submit" onclick="sendMail()">Kirim</button>
+        </form>
+    </section> -->
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="LOGO.png" alt="AION Logo" class="footer-logo">
+                    <p class="call-center" style="color: #ccc;">Edrick Devano</p>
+                    <i class="bi bi-whatsapp whatsapp-icon"></i>
+                    <a class="phone-number" href="https://wa.me/6288213303992?text=Halo%20saya%20ingin%20menanyakan%20mengenai%20mobil%20Aion%3A%0ANama%3A%0ATipe%20Mobil%3A" style="color: #ccc; text-decoration: none;">088213303992</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Models</h5>
+                    <ul class="footer-list">
+                        <a href="HYPTEC.html" style="color: #ccc; text-decoration: none;"><li>HYPTEC HT</li></a>
+                        <a href="v.html" style="color: #ccc; text-decoration: none;"><li>AION V</li></a>
+                        <a href="Y plus.html" style="color: #ccc; text-decoration: none;"><li>AION Y Plus</li></a>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Services</h5>
+                    <ul class="footer-list">
+                        <li>Request For Test Drive</li>
+                        <li>Dealership Information</li>
+                        <li>FAQ</li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+    </footer>
+
+    <script>
+        function showAddressField() {
+            var alamat = document.getElementById("Alamat").value;
+            var addressSection = document.getElementById("addressSection");
+            var dealerAddress = document.getElementById("dealerAddress");
+            var otherAddress = document.getElementById("OtherAddress");
+            var addr = document.getElementById("addr");
+            if (alamat === "Other") {
+                otherAddress.style.display = "block";
+                addressSection.style.display = "none";
+                dealerAddress.style.display = "none";
+            } else if (alamat === "Dealer") {
+                dealerAddress.style.display = "block";
+                addressSection.style.display = "none";
+                otherAddress.style.display = "none";
+            } else if (alamat === "Rumah" || alamat === "Kantor") {
+                addressSection.style.display = "block";
+                dealerAddress.style.display = "none";
+                otherAddress.style.display = "none";
+            } else {
+                addressSection.style.display = "none";
+                dealerAddress.style.display = "none";
+                otherAddress.style.display = "none";
+            }
+        }
+    </script>
+
+    <script>
+        document.getElementById("Forms").addEventListener("submit", function(e) {
+    e.preventDefault(); // Mencegah form untuk disubmit secara default
+    sendMail(); // Kirim menggunakan emailjs
+});
+
+    </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("popupModal");
+    const closeBtn = document.querySelector(".close");
+    const learnMoreBtn = document.getElementById("openModal"); // Pakai ID agar lebih jelas
+    const slides = document.querySelectorAll(".modal-body");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+    let currentSlide = 0;
+
+    // Pastikan modal tersembunyi saat halaman dimuat
+    modal.style.display = "none";
+
+    // Fungsi untuk menampilkan popup/modal
+    function showModal() {
+        modal.style.display = "flex";
+        showSlide(currentSlide);
+    }
+
+    // Fungsi untuk menutup popup/modal
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    // Fungsi untuk menampilkan slide berdasarkan indeks
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === index);
+        });
+    }
+
+    // Fungsi untuk next slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Fungsi untuk prev slide
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Pastikan tombol "Learn More" ada sebelum menambahkan event listener
+    if (learnMoreBtn) {
+        learnMoreBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            showModal();
+        });
+    }
+
+    // Pastikan tombol "X" ada sebelum menambahkan event listener
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closeModal);
+    }
+
+    // Pastikan tombol navigasi ada sebelum menambahkan event listener
+    if (nextBtn) {
+        nextBtn.addEventListener("click", nextSlide);
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener("click", prevSlide);
+    }
+
+    // Menutup modal jika klik di luar modal-content
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+});
+
+</script>
+
+    <script>
+    function sendMail() {
+    let parms = {
+        fname: document.getElementById("fname").value,
+        no: document.getElementById("no").value,
+        email: document.getElementById("email").value,
+        alamat: document.getElementById("Alamat").value,
+        addr: document.getElementById("addr").value,
+    };
+    emailjs.send("service_5b5e1sa", "template_2u86dok", parms)
+        .then(function(response) {
+            alert("Email Successfully Sent");
+        }, function(error) {
+            alert("Email Failed: " + error);
+        });
+}
+    </script>
+
+    <script>
+        function changeCarImage(color) {
+            const carImage = document.getElementById("car-image");
+
+            if (color === 'Vitality Green') {
+                carImage.src = 'Y+/Vitality-Green.webp';
+            } else if (color === 'Elegant Gray') {
+                carImage.src = 'Y+/Elegant-Grey.webp';
+            } else if (color === 'Pure White') {
+                carImage.src = 'Y+/pure-white.WEBP';
+            } else if (color === 'Glamour Black') {
+                carImage.src = 'Y+/glamour-black.WEBP';
+            } else if (color === 'Speedy Silver') {
+                carImage.src = 'Y+/speedy-silver-.webp';
+            } else if (color === '2 Tone Pure White') {
+                carImage.src = 'Y+/Pure-White-with-Black-Roof.WEBP';
+            } else if (color === '2 Tone Vitality Green') {
+                carImage.src = 'Y+/Vitality-Green-with-Black-Roof.webp';
+            } else if (color === 'enchanted forest') {
+                carImage.src = 'interior Y+/Enchanted-Forest.webp';
+            } else if (color === 'fairy wonderland') {
+                carImage.src = 'interior Y+/Fairy-Wonderland.webp';
+            } 
+
+            carImage.style.opacity = 0;
+            setTimeout(function () {
+                carImage.style.opacity = 1;
+            }, 500);
+        }
+
+        function toggleColorType(type) {
+            document.getElementById('exterior-btn').classList.remove('active');
+            document.getElementById('interior-btn').classList.remove('active');
+            document.getElementById(type + '-btn').classList.add('active');
+
+            if (type === 'exterior') {
+                document.getElementById('exterior-colors').style.display = 'flex';
+                document.getElementById('interior-colors').style.display = 'none';
+                document.getElementById('car-image').src = 'y+/glamour-black.webp';
+            } else {
+                document.getElementById('exterior-colors').style.display = 'none';
+                document.getElementById('interior-colors').style.display = 'flex';
+                document.getElementById('car-image').src = 'interior y+/enchanted-forest.webp';
+            }
+        }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script> 
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script> 
+    
+    <script>
+        const items = document.querySelectorAll('.accordion-item');
+
+items.forEach(item => {
+  item.addEventListener('click', () => {
+    items.forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+  });
+});
+    </script>
+</body>
+
+</html>

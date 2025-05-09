@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AION PIK</title>
+    <link rel="icon" href="logo1.jpeg" type="image/png"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+               emailjs.init("WjlAlZOWOOYdfq6F4",);
+            })();
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9; /* Warna latar belakang halaman */
+        }
+        
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(155, 237, 248, 0.2);
+            color: #000;
+            padding: 5px;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .heading {
+            display: flex;
+            align-items: center; /* Menyelaraskan gambar dan teks di tengah secara vertikal */
+            justify-content: left; /* Menyelaraskan elemen anak di tengah secara horizontal */
+        }
+        .heading h1 {
+            font-size: 24px;
+            color: #333;
+        }
+        .models {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .model {
+            text-align: center;
+            width: 30%;
+        }
+        .model img {
+            width: 100%;
+            height: auto;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 40px auto;
+        }
+
+        label {
+          font-size: 16px;
+          font-weight: bold;
+          color: #333;
+          margin-bottom: 8px;
+          display: block;
+        }
+
+        select, input[type="text"], input[type="email"], input[type="tel"] {
+          width: 100%;
+          padding: 12px;
+          font-size: 14px;
+          border: 2px solid #ccc;
+          border-radius: 8px;
+          margin-bottom: 15px;
+          transition: border-color 0.3s ease;
+        }
+
+        .carousel-models .carousel-inner img {
+        width: 100%;
+        max-height: 400px; /* Atur tinggi */
+        object-fit: cover;
+    }
+
+        select:focus, input[type="text"]:focus, input[type="email"]:focus {
+          border-color: #6c8af7;
+          outline: none;
+        }
+
+        input::placeholder {
+          color: #aaa;
+        }
+
+        #dealerAddress p {
+          font-size: 14px;
+          color: #333;
+        }
+
+        #dealerAddress a {
+          color: #007BFF;
+          text-decoration: none;
+          font-weight: bold;
+        }
+
+        #dealerAddress a:hover {
+          text-decoration: underline;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero-text {
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .models-container {
+            background: linear-gradient(to bottom, white, #aefcf0);
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .model {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+        }
+
+        .model img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .model h3 {
+            margin-top: 15px;
+            font-size: 20px;
+        }
+
+        .model p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .models-container {
+            background: linear-gradient(to bottom, white, #aefcf0);
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .models-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .models-subtitle {
+            font-size: 28px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Carousel Start */
+        .carousel-models {
+            width: 100%;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        /* Gambar di dalam carousel */
+        .carousel-slide img {
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            max-height: 800px; /* Sesuaikan dengan kebutuhan */
+            object-fit: cover; /* Pastikan gambar tetap proporsional tanpa terpotong */
+        }
+
+        .carousel-item img {
+            max-width: 800px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel-models .carousel-inner img {
+        width: 100%;
+        max-height: 800px; /* Atur tinggi */
+        object-fit: cover;
+        }
+
+        .carousel-hero img{
+            max-width: 100%;
+            width: auto;
+            height: 600px;
+            object-fit: cover;
+        }
+        
+        .carousel-models img {
+            max-width: 80%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .btn-primary {
+            background-color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .carousel-container {
+        position: relative;
+        width: 100%;
+        margin: auto;
+        display: block;
+        max-width: 800px;
+        overflow: hidden;
+
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-item {
+            height: auto;
+            width: 100%;
+            max-width: 100%;
+            flex: 0 0 auto;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(100%);
+        }
+        /* Carousel End */
+
+
+        .form-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px; /* Jarak antara form dan gambar */
+        max-width: 100%;
+        margin: auto;
+        padding: 20px;
+        }
+
+        .form-box {
+        flex: 1; /* Form mengambil 50% */
+        max-width: 800px; /* Batasi lebar form */
+        }   
+
+        .image-box {
+        text-align: center;
+        }
+
+        .test-drive-image {
+        width: 100%; /* Buat gambar responsif */
+        max-width: 600px; /* Batasi ukuran gambar */
+        border-radius: 10px; /* Tambahkan sudut melengkung */
+        }
+
+        /* Simulasi Start */
+        .simulasi-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+            padding: 50px;
+        }
+
+        .simulasi, .benefit {
+            position: relative;
+            width: 48%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .simulasi:hover, .benefit:hover {
+            transform: scale(1.05);
+            transition: transform 0.5s ease;
+        }
+
+        .simulasi {
+            background-image: url('warranty-and-maintenance.webp');
+        }
+
+        .benefit {
+            background-image: url('benefit.png');
+        }
+
+        .simulasi-info, .benefit-info {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .simulasi-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 992px) {
+            .carousel-hero img, .carousel-models img {
+                height: 100%;
+                width: 100%;
+            }
+
+            .btn-primary {
+                height: 100%;
+                width: auto;
+            }
+
+            .carousel-slide img {
+                max-height: 400px; /* Sesuaikan tinggi gambar agar pas di HP */
+             }
+
+             .carousel-caption {
+                font-size: 14px;
+                bottom: 5%;
+                padding: 8px 15px;
+            }
+
+            .simulasi-container {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .simulasi, .benefit {
+                width: 100%;
+                height: 300px;
+                margin-bottom: 20px;
+            }
+        }
+        /* Simulai End */
+        
+        /* Map Start */
+        .map-section {
+            display: flex;
+            align-items: center;
+            max-width: 100%;
+            padding: 50px;
+        }
+
+        .map-container {
+            width: 50%;
+            height: 400px;
+            background: url('showroom.jpg') center/cover no-repeat;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .map-container:hover {
+            transform: scale(1.05);
+        }
+
+        .dealer-info {
+            width: 50%;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .map-section {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .map-container, .dealer-info {
+                width: 100%;
+            }
+        }
+        /* Map End */
+
+        /* Footer Start */
+        .footer {
+            background-color: #000;
+            padding: 40px 0;
+            font-family: Arial, sans-serif;
+        }
+        .footer-logo {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+        .call-center {
+            font-size: 14px;
+            color: #333;
+        }
+        .phone-number {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .footer h5 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .footer-list {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-list li {
+            margin-bottom: 5px;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+        }
+        
+        .social-icons i {
+            font-size: 20px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+        }
+        /* Footer End */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .button-container a {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="heading">
+            <img src="LOGO.png" style="width: 20%;">
+        </div>
+    </header>
+
+        <!-- Hero Carousel (Bagian Atas) -->
+    <section id="carouselHero" class="carousel slide carousel-hero" data-bs-ride="carousel" interval="3000s">
+        <div class="carousel-inner">
+            
+            <div class="carousel-item">
+                <img src="Poster/AION-V.jpg" class="d-block w-100" alt="Hero Image 2">
+            </div>
+            <div class="carousel-item">
+                <img src="Poster/Poster-Design-Material-For-Mall.jpg" class="d-block w-100" alt="Hero Image 3">
+            </div>
+            <div class="carousel-item">
+                <img src="UT/4.jpeg" class="d-block w-100" alt="Hero Image 4">
+            </div>
+            <div class="carousel-item active">
+                <img src="Poster/Front.jpg" class="d-block w-100" alt="Hero Image 1">
+            </div>
+        </div>
+    </section>
+
+    <section class="flex items-center justify-center min-h-screen bg-gray-100 text-center px-4">
+        <div class="max-w-2xl bg-white p-8 rounded-2xl shadow-xl">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            ⚡ Selamat Datang di <span class="text-blue-600">AION PIK</span>
+          </h2>
+          <p class="text-lg text-gray-600 italic mb-4">
+            Dealer Resmi Mobil AION – Premium, Futuristik, Ramah Lingkungan
+          </p>
+          <p class="text-gray-700 mb-6">
+            Temukan pengalaman berkendara masa depan hari ini. Mobil listrik canggih, desain elegan, dan teknologi mutakhir kini hadir di Pantai Indah Kapuk.
+          </p>
+          <ul class="list-style: none; padding-left: 0;" style="list-style: none;">
+            <li>✅ Dealer Resmi AION EV</li>
+            <li>✅ Test Drive Tersedia</li>
+            <li>✅ Cicilan Ringan & Promo Menarik</li>
+            <li>✅ Lokasi Strategis di PIK</li>
+          </ul>
+          <div class="flex justify-center gap-4">
+            <div class="button-container">
+                <a href="https://wa.me/6288213303992?text=Halo%20saya%20ingin%20test%20drive%20mobil%20%3A%0ANama%3A%0ANo. Telfon%3A%" target="_blank" class="test-drive-btn">🚗 Book a Test Drive</a>
+                </div>
+          </div>
+        </div>
+      </section>
+      
+      
+        
+    <!-- Models Carousel (Bagian Bawah) -->
+    <section class="models-container">
+        <h2 class="models-title">Jelajahi AION</h2>
+        <p class="models-subtitle">Temukan Produk Unggulan Kami</p>
+        <div id="carouselModels" class="carousel slide carousel-models" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="carousel-slide">
+                        <img src="index/v1.jpg" alt="AION V">
+                        <div class="carousel-caption">
+                            <h3>AION V</h3>
+                            <p>75.3kWh | 600+ Km</p>
+                            <a href="v.html" class="btn-primary">Jelajahi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-slide">
+                        <img src="index/aion-y-plus green.png" alt="AION Y Plus">
+                        <div class="carousel-caption">
+                            <h3>AION Y Plus</h3>
+                            <p>60.5kWh | 410 Km</p>
+                            <a href="Y+.html" class="btn-primary">Jelajahi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-slide">
+                        <img src="index/HT-maroon.png" alt="HYPTEC HT">
+                        <div class="carousel-caption">
+                            <h3>HYPTEC HT</h3>
+                            <p>83 kWh | 600++ Km</p>
+                            <a href="HT.html" class="btn-primary">Jelajahi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-slide">
+                        <img src="ut/image-removebg-preview (5).png" alt="HYPTEC HT">
+                        <div class="carousel-caption">
+                            <h3>AION UT</h3>
+                            <p style="color: black;">COMING SOON</p>
+                            <a href="UT.html" class="btn-primary">Jelajahi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselModels" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselModels" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <div class="simulasi-container">
+        <section class="simulasi">
+            <div class="simulasi-info">
+                <h2>Simulasi Kredit</h2>
+                <p>Hitung cicilan bulanan dan temukan mobil terbaik sesuai dengan anggaran Anda!</p>
+                <div class="button-container">
+                    <a href="simulasi.html" class="simulasi-btn"> Lihat Simulasi</a>
+                </div>
+            </div>
+        </section>
+        <section class="benefit">
+            <div class="benefit-info">
+                <h2>Benefit</h2>
+                <p>Dapatkan keuntungan tambahan dari pembelian kendaraan Anda!</p>
+                <div class="button-container">
+                    <a href="#" class="simulasi-btn"> Lihat Benefit</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="map-section">
+        <div class="map-container"></div>
+        <div class="dealer-info">
+            <h2>Lokasi Showroom</h2>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.2553868392012!2d106.73657739999999!3d-6.111822700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1dda627b442f%3A0xb46c68d7a17e5bf!2sAION%20PIK!5e0!3m2!1sid!2sid!4v1709928859400" 
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <p><strong>Alamat:</strong> Jl. Pantai Indah Selatan No.1 2, RT.2/RW.3, Kapuk Muara, Kec. Penjaringan, Jakarta, Daerah Khusus Ibukota Jakarta 14440</p>
+            <p><a href="https://www.google.com/maps/dir//aion+pik/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x2e6a1dda627b442f:0xb46c68d7a17e5bf?sa=X&ved=1t:3061&ictx=111" target="_blank">Lihat di Google Maps</a></p>
+        </div>
+    </div>
+                    
+
+    <!-- <section class="form-container">
+        <div class="form-box">
+            <form id="Forms">
+                <label for="fname">Nama:</label>
+                <input type="text" id="fname" name="fname" placeholder="Masukkan nama" required><br>
+                <label for="no">No. Telepon:</label>
+                <input type="tel" id="no" name="no" pattern="[0-9]{10,15}" placeholder="Masukkan nomor telepon" required><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan email" required><br>
+                <label for="Alamat">Berminat Test Drive di:</label>
+                <select id="Alamat" name="Alamat" required onchange="showAddressField()">
+                    <option value="">Pilih lokasi...</option>
+                    <option value="Dealer">Dealer</option>
+                    <option value="Rumah">Rumah</option>
+                    <option value="Kantor">Kantor</option>
+                    <option value="Other">Lainnya</option>
+                </select><br><br>
+                <div id="otherAddress" style="display:none;">
+                    <label for="otherLocation">Alamat:</label><br>
+                    <input type="text" id="otherLocation" name="otherLocation" placeholder="Masukkan alamat" required><br><br>
+                </div>
+    
+                <div id="addressSection" style="display:none;">
+                    <label for="locationAddress">Alamat:</label><br>
+                    <input type="text" id="addr" name="addr" placeholder="Masukkan alamat" required><br><br>
+                </div>
+    
+                <div id="dealerAddress" style="display:none;">
+                    <p><strong>Alamat Dealer:</strong> Jl. Pantai Indah Selatan No.1 2, RT.2/RW.3, Kapuk Muara, Kec. Penjaringan, Jakarta, Daerah Khusus Ibukota Jakarta 14440</p>
+                    <p><a href="https://www.google.com/maps/dir//aion+pik/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x2e6a1dda627b442f:0xb46c68d7a17e5bf?sa=X&ved=1t:3061&ictx=111" target="_blank">Lihat di Google Maps</a></p>
+                </div>
+    
+                <button type="submit" onclick="sendMail()">Kirim</button>
+            </form>
+        </div>
+    </section> -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="LOGO.png" alt="AION Logo" class="footer-logo">
+                    <p class="call-center" style="color: #ccc;">Edrick Devano</p>
+                    <i class="bi bi-whatsapp whatsapp-icon"></i>
+                    <a class="phone-number" href="https://wa.me/6288213303992?text=Halo%20saya%20ingin%20menanyakan%20mengenai%20mobil%20Aion%3A%0ANama%3A%0ATipe%20Mobil%3A" style="color: #ccc; text-decoration: none;">088213303992</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Models</h5>
+                    <ul class="footer-list">
+                        <a href="HYPTEC.html" style="color: #ccc; text-decoration: none;"><li>HYPTEC HT</li></a>
+                        <a href="v.html" style="color: #ccc; text-decoration: none;"><li>AION V</li></a>
+                        <a href="Y plus.html" style="color: #ccc; text-decoration: none;"><li>AION Y Plus</li></a>
+                        <a href="UT.html" style="color: #ccc; text-decoration: none;"><li>AION UT</li></a>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Services</h5>
+                    <ul class="footer-list">
+                        
+                            
+                        <li><a href="https://wa.me/6288213303992?text=Halo%20saya%20ingin%20test%20drive%20mobil%20%3A%0ANama%3A%0ANo. Telfon%3A%" target="_blank" class="test-drive-btn">🚗 Request For Test Drive</a></li>
+                        <li>Dealership Information</li>
+                        <li>FAQ</li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+    </footer>
+
+    <script>
+        function showAddressField() {
+            var alamat = document.getElementById("Alamat").value;
+            var addressSection = document.getElementById("addressSection");
+            var dealerAddress = document.getElementById("dealerAddress");
+            var otherAddress = document.getElementById("OtherAddress");
+            var addr = document.getElementById("addr");
+            if (alamat === "Other") {
+                otherAddress.style.display = "block";
+                addressSection.style.display = "none";
+                dealerAddress.style.display = "none";
+            } else if (alamat === "Dealer") {
+                dealerAddress.style.display = "block";
+                addressSection.style.display = "none";
+                otherAddress.style.display = "none";
+            } else if (alamat === "Rumah" || alamat === "Kantor") {
+                addressSection.style.display = "block";
+                dealerAddress.style.display = "none";
+                otherAddress.style.display = "none";
+            } else {
+                addressSection.style.display = "none";
+                dealerAddress.style.display = "none";
+                otherAddress.style.display = "none";
+            }
+        }
+    </script>
+
+    <script>
+        document.getElementById("Forms").addEventListener("submit", function(e) {
+    e.preventDefault(); // Mencegah form untuk disubmit secara default
+    sendMail(); // Kirim menggunakan emailjs
+});
+
+    </script>
+
+    <script>
+    function sendMail() {
+    let parms = {
+        fname: document.getElementById("fname").value,
+        no: document.getElementById("no").value,
+        email: document.getElementById("email").value,
+        alamat: document.getElementById("Alamat").value,
+        addr: document.getElementById("addr").value,
+    };
+    emailjs.send("service_5b5e1sa", "template_2u86dok", parms)
+        .then(function(response) {
+            alert("Email Successfully Sent");
+        }, function(error) {
+            alert("Email Failed: " + error);
+        });
+}
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+           
