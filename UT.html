@@ -607,7 +607,7 @@ button:focus {
     </header>
 
     <section class="car-poster" id="car-poster">
-       <video id="myVideo"  autoplay loop playsinline>
+       <video autoplay loop playsinline>
             <source src="UT/poster.mp4" type="video/mp4">
         </video>
         <div class="car-info">
@@ -980,17 +980,6 @@ items.forEach(item => {
   });
 });
     </script>
-
-    <script>
-  const video = document.getElementById("myVideo");
-  video.volume = 0.2; // Set volume ke 50%
-
-  // Coba paksa play jika autoplay diblokir
-  video.play().catch(error => {
-    console.warn("Autoplay dengan suara diblokir oleh browser:", error);
-    // Opsi: Tampilkan tombol agar user bisa klik untuk memulai
-  });
-</script>
 
 </body>
 
