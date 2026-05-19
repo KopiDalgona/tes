@@ -125,14 +125,16 @@
             padding: 15px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             .hero img {
                 width: 100%;
+                height: auto;
             }
         }
 
         .color-picker-section {
             text-align: center;
+            
             margin-top: 30px;
         }
 
@@ -160,14 +162,15 @@
 
         .color-options {
             display: flex;
-            justify-content: center;
+            justify-content: center; /* left-align for natural scroll */
             gap: 20px;
             margin: 20px 0;
+            padding: 10px;
         }
 
         .color-option {
             width: 50px;
-            height: 50px;
+            height: 90px;
             border-radius: 50%;
             cursor: pointer;
             border: 3px solid transparent;
@@ -175,10 +178,11 @@
         }
 
         .color-option img {
-            width: 50px;
-            height: 50px;
+            width: 30px;
+            height: 40px;
             border-radius: 50%;
             cursor: pointer;
+            border: #000 1px dotted;
         }
 
         .car-display img {
@@ -426,6 +430,27 @@
                 height: 300px;
                 margin-bottom: 20px;
             }
+            .color-selection button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 20px;
+            background-color: #ddd;
+            width: auto;
+            font-size: 15px;
+            color: #333;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .color-options {
+            display: flex;
+            justify-content: center; /* left-align for natural scroll */
+            gap: 20px;
+            margin: 20px 0;
+            overflow-x: auto; /* horizontal scrolling */
+            padding: 10px;
+            scroll-snap-type: x mandatory; /* optional: smooth scroll snap */
+            -webkit-overflow-scrolling: touch; /* for smooth iOS scrolling */
+        }
         }
 
         /* popup */
@@ -593,20 +618,350 @@ button:focus {
   .accordion-item.active {
     flex: 5;
   }
+    
+  /* Navbar utama */
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.dropdown {
+  float: left;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: rgb(11, 11, 11);
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: rgb(238, 238, 238);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* ISI DROPDOWN */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Logo di kiri */
+.logo img {
+  height: 50px;
+  display: block;
+}
+
+/* Menu kanan */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  margin-left: auto; /* dorong menu ke kanan */
+  align-items: center;
+}
+
+.nav-links li a, .dropbtn {
+  text-decoration: none;
+  color: rgb(12, 12, 12);
+  font-weight: 500;
+  padding: 14px 16px;
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links li a:hover,.dropdown:hover .dropbtn {
+  color: #b30000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 12px;
+  }
+  .logo img {
+    height: 35px;
+  }
+}
+
+/* =========================
+   MOBILE RESPONSIVE FIX
+========================= */
+@media screen and (max-width: 768px) {
+
+    body{
+        overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .nav-links{
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 10px;
+    }
+
+    .nav-links li a,
+    .dropbtn{
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* HERO POSTER */
+    .car-poster{
+        height: auto;
+        min-height: 400px;
+        background-position: center;
+        padding: 20px;
+    }
+
+    .car-info{
+        width: 95%;
+        padding: 15px;
+        bottom: 10px;
+    }
+
+    .car-info h2{
+        font-size: 18px;
+    }
+
+    .car-info p{
+        font-size: 14px;
+    }
+
+    /* BUTTON */
+    .button-container{
+        flex-direction: column;
+    }
+
+    .button-container a{
+        width: 100%;
+        font-size: 14px;
+    }
+
+    /* COLOR PICKER */
+    .color-selection{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .color-options{
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    .color-option{
+        width: 70px;
+        height: auto;
+    }
+
+    .color-option img{
+        width: 50px;
+        height: 50px;
+    }
+
+    .color-option p{
+        font-size: 12px;
+    }
+
+    /* CAR IMAGE */
+    .car-display img{
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+    #car-image{
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* ACCORDION */
+    .accordion-container{
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .accordion-item{
+        width: 100%;
+        min-height: 180px;
+        margin: 5px 0;
+        flex: unset;
+    }
+
+    .accordion-item.active{
+        flex: unset;
+    }
+
+    /* SIMULASI & BENEFIT */
+    .simulasi-container{
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .simulasi,
+    .benefit{
+        width: 100%;
+        height: 220px;
+        padding: 20px;
+        opacity: 1;
+    }
+
+    /* MODAL */
+    .modal-content{
+        width: 95%;
+        height: auto;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-slides img{
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
+    }
+
+    .modal-text{
+        padding: 10px;
+    }
+
+    .modal-text h3{
+        font-size: 18px;
+    }
+
+    .modal-text p{
+        font-size: 14px;
+    }
+
+    /* FOOTER */
+    .footer .row{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer{
+        text-align: center;
+    }
+
+    .footer-logo{
+        margin: auto;
+    }
+
+    /* WHATSAPP BUTTON */
+    .whatsapp-button{
+        width: 55px;
+        height: 55px;
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .whatsapp-button:hover{
+        width: 55px;
+        border-radius: 50%;
+    }
+
+    .whatsapp-text{
+        display: none !important;
+    }
+}
     </style>
 </head>
-
 <body>
     <header>
-        <div class="heading">
-            <a href="index.html"><img src="LOGO.png" style="width: 15%;"></a>
-        </div>
+       <nav class="navbar">
+
+  <!-- Logo kiri -->
+  <div class="logo">
+    <a href="index.html">
+      <img src="LOGO.png" alt="Logo">
+    </a>
+  </div>
+
+  <!-- Menu kanan -->
+  <ul class="nav-links">
+
+    <li>
+      <a href="index.html#carouselHero">Home</a>
+    </li>
+
+    <!-- Dropdown -->
+    <li class="dropdown">
+
+      <button class="dropbtn">
+        Model ▼
+      </button>
+
+      <div class="dropdown-content">
+        <a href="v.html">V</a>
+        <a href="HT.html">HYPTEC</a>
+        <a href="UT.html">UT</a>
+      </div>
+
+    </li>
+
+    <li>
+      <a href="#BENEFITS">Benefit</a>
+    </li>
+
+    <li>
+      <a href="#footerr">Contact</a>
+    </li>
+
+  </ul>
+
+</nav>
     </header>
 
     <section class="car-poster" id="car-poster" style="background-image: url('Poster/AION-V.jpg');">
         <div class="car-info">
-            <h2>Model: AION V Luxury</h2>
-            <p>From (OTR JKT): Rp 489.000.000</p>
+            <h2>Model: AION V Luxury & AION V Exclusive</h2>
+            <p>From (OTR JKT): Rp 465.000.000 - 530.000.000</p>
             <div class="button-container">
                 <a href="https://wa.me/6288213303992?text=Halo%20saya%20ingin%20test%20mobil%20mobil%20Aion%3A%0ANama%3A%0ANo. Telfon%3A%0ATipe%20Mobil%3A" target="_blank" class="test-drive-btn">🚗 Book a Test Drive</a>
                 <a href="brosur/FLYER-AION-V-FA-DIGITAL.pdf" class="brochure-btn" target="_blank">⬇️ Download Brochure</a>
@@ -626,21 +981,19 @@ button:focus {
         </div>
 
         <div class="color-options" id="exterior-colors">
-            <div class="color-option" onclick="changeCarImage('NIGHT SHADOW')"><img src="warna v/Night-Shadow-Black-1.png" alt=""></div>
-            <div class="color-option" onclick="changeCarImage('GALAXY BLUE')"><img src="warna v/Galaxy-Blue color.jpg" alt=""></div>
-            <div class="color-option" onclick="changeCarImage('SEA FLUORESCENT GRAY')"><img src="warna v/Sea-Fluorescent-Gray-1.png" alt=""></div>
-            <div class="color-option" onclick="changeCarImage('WILDERNESS SAND')"><img src="warna v/Wilderness-Sand-1.png" alt=""></div>
-            <div class="color-option" onclick="changeCarImage('HOLOGRAPIC SILVER')"><img src="warna v/Holographic-Silver-1.png" alt=""></div>
-            <div class="color-option" onclick="changeCarImage('ARCTIC WHITE')"><img src="warna v/Arctic-White-1.png" alt=""></div>
-            <div class="color-option" onclick="changeCarImage('SUNSET ORANGE')"><img src="warna v/Sunset-Orange-2.png" alt=""></div>
-            <div class="color-option" onclick="changeCarImage('SUNSET ORANGE 2 TONE')"><img src="warna v/Sunset-Orange-White-Roof-1.png" alt=""></div>
-            <div class="color-option" onclick="changeCarImage('GALAXY BLUE 2 TONE')"><img src="warna v/Galaxy-Blue-White-Roof-1.png" alt=""></div>
+            <div class="color-option" onclick="changeCarImage('NIGHT SHADOW')"><img src="warna v/Night-Shadow-Black-1.png" alt=""><p>Night Black</p></div>
+            <div class="color-option" onclick="changeCarImage('GALAXY BLUE')"><img src="warna v/Galaxy-Blue color.jpg" alt=""><p>Galaxy Blue</p></div>
+            <div class="color-option" onclick="changeCarImage('SEA FLUORESCENT GRAY')"><img src="warna v/Sea-Fluorescent-Gray-1.png" alt=""><p>Gray</p></div>
+            <div class="color-option" onclick="changeCarImage('WILDERNESS SAND')"><img src="warna v/Wilderness-Sand-1.png" alt=""><p>Wildernes Sand</p></div>
+            <div class="color-option" onclick="changeCarImage('HOLOGRAPIC SILVER')"><img src="warna v/Holographic-Silver-1.png" alt=""><p> Silver</p></div>
+            <div class="color-option" onclick="changeCarImage('ARCTIC WHITE')"><img src="warna v/Arctic-White-1.png" alt=""><p>Arctic White</p></div>
+            <div class="color-option" onclick="changeCarImage('GALAXY BLUE 2 TONE')"><img src="warna v/Galaxy-Blue-White-Roof-1.png" alt=""><p>Blue 2 Tone</p></div>
         </div>
-
+<br>
+        <br>
     <div class="color-options" id="interior-colors" style="display: none;">
-        <div class="color-option" onclick="changeCarImage('Beige')"><img src="warna v/beige.jpg"></div>
-            <div class="color-option" onclick="changeCarImage('Brown')"><img src="warna v/brown.jpg"></div>
-            <div class="color-option" onclick="changeCarImage('Black')"><img src="warna v/Sleek-Black-Compress.jpg"></div>
+            <div class="color-option" onclick="changeCarImage('Brown')"><img src="warna v/brown.jpg"><p>Brown</p></div>
+            <div class="color-option" onclick="changeCarImage('Black')"><img src="warna v/Sleek-Black-Compress.jpg"><p>Black</p></div>
         </div>
 
     </section>
@@ -656,7 +1009,7 @@ button:focus {
     <div class="accordion-item" style="background-image: url('eXtra\ Comfort/bagasi.png');"></div>
     <div class="accordion-item" style="background-image: url('eXtra\ Comfort/kursi.png');"></div>
     <div class="accordion-item" style="background-image: url('eXtra\ Comfort/kulkas.png');"></div>
-    <div class="accordion-item" style="background-image: url('eXtra\ Comfort/speaker.png');"></div>
+    <div class="accordion-item" style="background-image: url('eXtra\ Comfort/Speaker.png');"></div>
   </div>
 
     <div class="specs">
@@ -750,12 +1103,12 @@ button:focus {
     <div class="simulasi-container">
         <div class="simulasi">
                 <h1 class="simulasi-title">Simulasi</h1>
-                <a href="simulasi.html">Learn More ↗</h7></a>
+                <a href="simulasi.html"><h4>Learn More ↗</h4></a>
             </div>
     
         <div class="benefit">
-            <h1 class="benefit-title">Benefit</h1>
-            <a href="#" id="openModal"><h7>Learn More ↗</h7></a>
+            <h1 class="benefit-title" id="BENEFITS">Benefit</h1>
+            <a href="#" id="openModal"><h4>Learn More ↗</h4></a>
         </div>
     </div>
 
@@ -774,7 +1127,7 @@ button:focus {
                 </div>
                 <div class="modal-text">
                     <h3>Lifetime Warranty</h3>
-                    <p>Untuk setiap pembelian mobil AION Y Plus, AION V dan HYPTEC HT akan mendapatkan Lifetime Warranty yang mencakup baterai, motor elektrik, dan kontroler elektrik.</p>
+                    <p>Untuk setiap pembelian mobil AION Y Plus, AION UT, AION V dan HYPTEC HT akan mendapatkan Lifetime Warranty yang mencakup baterai, motor elektrik, dan kontroler elektrik.</p>
                     <br>
                 </div>
             </div>
@@ -799,7 +1152,7 @@ button:focus {
                 </div>
                 <div class="modal-text">
                     <h3>Vehicle Warranty</h3>
-                    <p>Garansi kendaraan secara menyeluruh selama 8 tahun atau hingga 160.000 kilometer, serta free service maintenance selama 5 tahun atau hingga 100.000 kilometer mencakup layanan dan pemeriksaan secara rutin agar kendaraan tetap dalam kondisi optimal.</p>
+                    <p>Garansi kendaraan secara menyeluruh selama 8 tahun atau hingga 160.000 kilometer, serta free service maintenance selama 5 tahun atau hingga 60.000 kilometer mencakup layanan dan pemeriksaan secara rutin agar kendaraan tetap dalam kondisi optimal.</p>
                 </div>
             </div>
         </div>
@@ -856,11 +1209,11 @@ button:focus {
         </form>
     </section> -->
     
-    <footer class="footer">
+    <footer class="footer" id="footerr">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="LOGO.png" alt="AION Logo" class="footer-logo">
+                    <img src="Logo1.png" alt="AION Logo" class="footer-logo">
                     <p class="call-center" style="color: #ccc;">Edrick Devano</p>
                     <i class="bi bi-whatsapp whatsapp-icon"></i>
                     <a class="phone-number" href="https://wa.me/6288213303992?text=Halo%20saya%20ingin%20menanyakan%20mengenai%20mobil%20Aion%3A%0ANama%3A%0ATipe%20Mobil%3A" style="color: #ccc; text-decoration: none;">088213303992</a>
@@ -868,15 +1221,18 @@ button:focus {
                 <div class="col-md-4">
                     <h5>Models</h5>
                     <ul class="footer-list">
-                        <a href="HYPTEC.html" style="color: #ccc; text-decoration: none;"><li>HYPTEC HT</li></a>
+                        <a href="HT.html" style="color: #ccc; text-decoration: none;"><li>HYPTEC HT</li></a>
                         <a href="v.html" style="color: #ccc; text-decoration: none;"><li>AION V</li></a>
-                        <a href="Y plus.html" style="color: #ccc; text-decoration: none;"><li>AION Y Plus</li></a>
+                        <a href="Y+.html" style="color: #ccc; text-decoration: none;"><li>AION Y Plus</li></a>
+                        <a href="UT.html" style="color: #ccc; text-decoration: none;"><li>AION UT</li></a>
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <h5>Services</h5>
                     <ul class="footer-list">
-                        <li>Request For Test Drive</li>
+                        
+                            
+                        <li><a href="https://wa.me/6288213303992?text=Halo%20saya%20ingin%20test%20drive%20mobil%20%3A%0ANama%3A%0ANo. Telfon%3A%" target="_blank" class="test-drive-btn">🚗 Request For Test Drive</a></li>
                         <li>Dealership Information</li>
                         <li>FAQ</li>
                     </ul>
@@ -1018,29 +1374,27 @@ document.addEventListener("DOMContentLoaded", function () {
             const carImage = document.getElementById("car-image");
 
             if (color === 'GALAXY BLUE') {
-                carImage.src = 'v/GALAXY-BLUE.jpg';
+                carImage.src ='v/GALAXY-BLUE.jpg';
             } else if (color === 'GALAXY BLUE 2 TONE') {
-                carImage.src = 'v/GALAXY-BLUE-TWO-TONE.jpg';
+                carImage.src ='v/GALAXY-BLUE-TWO-TONE.jpg';
             } else if (color === 'HOLOGRAPIC SILVER') {
-                carImage.src = 'v/HOLOGRAPHIC-SILVER_COMPRESSED.WEBP';
+                carImage.src ='https://lh3.googleusercontent.com/pw/AP1GczO2isbfIKT1qHeM-QhxqRxnIcK9prbvAFhymHugfbbRRSNWREsjf5uovBE_a1yVTdSCE1QWRQUObYKeQLgyB7C9yC-1VBM-QvcrRh2tSMOTEdO75e3vrV9lAGCgi87QDd3DzpHFSfgYBqKDu0XJkpW0=w1380-h809-s-no-gm?authuser=0';
             } else if (color === 'NIGHT SHADOW') {
-                carImage.src = 'V/NIGHT-SHADOW-BLACK_COMPRESSED.WEBP';
+                carImage.src ='https://lh3.googleusercontent.com/pw/AP1GczN9CsSVGYz0IZ0bMua3bN4R4G7QJ6exockHxj-pzQZxSKsr9sDawWVnTH0Z882oWjhnxtIU7hyChB2Woc5RvAqhhlNabPFTmETlzf5Yb_Id0yf1EP00DrG25iI_oI6eu-gTuZM_wBZQpJCZ8ujwjO9i=w1380-h809-s-no-gm?authuser=0';
             } else if (color === 'SEA FLUORESCENT GRAY') {
-                carImage.src = 'V/SEA-F-GRAY.webp';
+                carImage.src ='v/SEA-F-GRAY.webp';
             } else if (color === 'SUNSET ORANGE') {
-                carImage.src = 'V/SUNSET-ORANGE.WEBP';
+                carImage.src ='https://lh3.googleusercontent.com/pw/AP1GczOgEssd1dINUxSyYxwPFY8XAVh4jA9YOX9X6b7O2w8mRLXgGWmlV-_w-UhtmH0iDL43YLmzfQFKiOIXToL4uBXvEAXy-PycJIUwpzt9j9hECdZysvioI6JrzY_ZmEEQn7ElqJuxbZLb0moRAC0XSXE1=w1380-h809-s-no-gm?authuser=0';
             } else if (color === 'SUNSET ORANGE 2 TONE') {
-                carImage.src = 'V/SUNSET-ORANGE-TWO-TONE.webp';
+                carImage.src ='https://lh3.googleusercontent.com/pw/AP1GczOBY8JUfga5o1AVkXAoR8yOMWLRnfLJxvgAxUdTo9GAdowYtaZioQiadPw2g6bYUowv6laNtjpLSCewXA90hgHDLLVX8E_W4_Xa9UwgznoefDWAiA21ITuCjKjpX54RbZDBbrmC4oUn_oUyqm7yRjDK=w1380-h809-s-no-gm?authuser=0';
             } else if (color === 'WILDERNESS SAND') {
-                carImage.src = 'V/WILDERNESS-SAND.webp';
+                carImage.src ='https://lh3.googleusercontent.com/pw/AP1GczMKez7VNyOG_rPjvivdH4OTwtLT5AQLbPkyYOyVHP_7mKf704rS1Hj70WQUvo7GPLc95uVbJasgTCsJp1tiKtKABB-ElMSHRgUL5yZSA1uN08Gr7Qsow9i-zWck2LTzKxWLCZNxNuFsPxVswuqIfIYN=w1380-h809-s-no-gm?authuser=0';
             } else if (color === 'ARCTIC WHITE') {
-                carImage.src = 'V/ARTIC-WHITE.JPG';
+                carImage.src ='https://lh3.googleusercontent.com/pw/AP1GczMWlJF8qgV60VS3nrphernUKG5x7TWX0FAoablJaiUQjOlt-2F_6wz4dLb7KJEGvSzdx37ceAbj96-_vYLRM_EJKQ8uCkZ0iw-oo92gZ7mQxFmXgeTKBLoPW7pL0UwAQ71Rp4x3b6_jviyAT01BTPjw=w1380-h809-s-no-gm?authuser=0';
             } else if (color === 'Black') {
-                carImage.src = 'interior v/Black.jpg';
-            } else if (color === 'Beige') {
-                carImage.src = 'interior V/black-beige.JPG';
-            } else if (color === 'Brown') {
-                carImage.src = 'interior V/black-brown.JPG';
+                carImage.src ='https://lh3.googleusercontent.com/pw/AP1GczOJj80p---kdM0MNvl0XKoGJthQOCGFv1MLUqnwgh7YLUAaw573y_pLZxskHkLAmtcj2kMUzGPotlG6ei55AMl9LNCzaOEYdUPDaEIzf0_jpJACaOXZltNFVeKrpAx5VKuXdrKOxxKGzlObfRcFKROQ=w1917-h959-s-no-gm?authuser=0';
+            }  else if (color === 'Brown') {
+                carImage.src ='https://lh3.googleusercontent.com/pw/AP1GczNsx6PzAoFSDdUFi0eRN1bnTuW8qdTeTce4XkQZHN5Hftvz3JNH9Kpfw5Ge8_NT0iSy6iL0zTPBCiX84XgkqS_31aAKie9KqensXV_wpR20ydZx4oGxPJTBknEU0zYpoql97dutna9nLWX1ALSQDEe9=w1917-h959-s-no-gm?authuser=0';
             }
 
             carImage.style.opacity = 0;

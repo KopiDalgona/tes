@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AION PIK</title>
+    <title>AION Mabes</title>
     <link rel="icon" href="logo1.jpeg" type="image/png"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -18,7 +18,7 @@
     </script>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family:  Arial, Helvetica, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f9; /* Warna latar belakang halaman */
@@ -140,7 +140,7 @@
         }
         
         .models-container {
-            background: linear-gradient(to bottom, white, #aefcf0);
+            background: linear-gradient(to bottom, white, #aefcf05f);
             text-align: center;
             padding: 50px 20px;
         }
@@ -171,7 +171,7 @@
         }
 
         .models-container {
-            background: linear-gradient(to bottom, white, #aefcf0);
+            background: linear-gradient(to bottom, white, #aefcf05f);
             text-align: center;
             padding: 50px 20px;
         }
@@ -301,6 +301,7 @@
 
         /* Simulasi Start */
         .simulasi-container {
+            background: linear-gradient(to top, white, #aefcf05f);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -390,12 +391,13 @@
             align-items: center;
             max-width: 100%;
             padding: 50px;
+            background: linear-gradient(to bottom, white, #aefcf05f);
         }
 
         .map-container {
             width: 50%;
             height: 400px;
-            background: url('showroom.jpg') center/cover no-repeat;
+            background: url('showroom.png') center/cover no-repeat;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
@@ -425,7 +427,7 @@
         .footer {
             background-color: #000;
             padding: 40px 0;
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
         .footer-logo {
             width: 120px;
@@ -487,17 +489,357 @@
             transition: all 0.3s ease;
             text-align: center;
         }
+          .custom-bg-gradient {
+    background: linear-gradient(to top, white, #aefcf05f);
+  }
+
+          /* popup */
+        /* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Modal Content */
+.modal-content {
+    background: white;
+    width: 80%;  /* Mengurangi ukuran di layar besar */
+    max-width: 700px; /* Batasi ukuran maksimal */
+    max-height: 79vh; /* Batasi tinggi agar tidak terlalu besar */
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    height: 100%;
+    position: fixed;
+}
+
+/* Tombol Close (X) */
+.close{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10000; /* Pastikan tombol berada di atas elemen lain */
+    background: none;
+    border: none;
+}
+
+/* Slide Styling */
+.modal-slides {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.modal-slides img {
+    max-width: 100%;
+    width: 100%;
+    height: 310px;
+}
+
+/* Setiap modal-body sebagai slide */
+.modal-body {
+    display: none;
+    width: 100%;
+}
+
+.modal-body.active {
+    display: block;
+}
+
+/* Navigasi Slide */
+button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Responsif untuk Layar Kecil */
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        max-width: 100%;
+        max-height: 90vh;
+    }
+}
+/* popup end */
+         
+  /* Navbar utama */
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+/* Logo di kiri */
+.logo img {
+  height: 50px;
+  display: block;
+}
+
+/* Menu kanan */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  margin-left: auto; /* dorong menu ke kanan */
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #b30000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 12px;
+  }
+  .logo img {
+    height: 35px;
+  }
+}
+
+/* =========================
+   MOBILE RESPONSIVE FIX
+========================= */
+@media screen and (max-width: 768px) {
+
+    body{
+        overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .nav-links{
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 10px;
+    }
+
+    .nav-links li a,
+    .dropbtn{
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* HERO POSTER */
+    .car-poster{
+        height: auto;
+        min-height: 400px;
+        background-position: center;
+        padding: 20px;
+    }
+
+    .car-info{
+        width: 95%;
+        padding: 15px;
+        bottom: 10px;
+    }
+
+    .car-info h2{
+        font-size: 18px;
+    }
+
+    .car-info p{
+        font-size: 14px;
+    }
+
+    /* BUTTON */
+    .button-container{
+        flex-direction: column;
+    }
+
+    .button-container a{
+        width: 100%;
+        font-size: 14px;
+    }
+
+    /* COLOR PICKER */
+    .color-selection{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .color-options{
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    .color-option{
+        width: 70px;
+        height: auto;
+    }
+
+    .color-option img{
+        width: 50px;
+        height: 50px;
+    }
+
+    .color-option p{
+        font-size: 12px;
+    }
+
+    /* CAR IMAGE */
+    .car-display img{
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+    #car-image{
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* ACCORDION */
+    .accordion-container{
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .accordion-item{
+        width: 100%;
+        min-height: 180px;
+        margin: 5px 0;
+        flex: unset;
+    }
+
+    .accordion-item.active{
+        flex: unset;
+    }
+
+    /* SIMULASI & BENEFIT */
+    .simulasi-container{
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .simulasi,
+    .benefit{
+        width: 100%;
+        height: 220px;
+        padding: 20px;
+        opacity: 1;
+    }
+
+    /* MODAL */
+    .modal-content{
+        width: 95%;
+        height: auto;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-slides img{
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
+    }
+
+    .modal-text{
+        padding: 10px;
+    }
+
+    .modal-text h3{
+        font-size: 18px;
+    }
+
+    .modal-text p{
+        font-size: 14px;
+    }
+
+    /* FOOTER */
+    .footer .row{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer{
+        text-align: center;
+    }
+
+    .footer-logo{
+        margin: auto;
+    }
+
+    /* WHATSAPP BUTTON */
+    .whatsapp-button{
+        width: 55px;
+        height: 55px;
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .whatsapp-button:hover{
+        width: 55px;
+        border-radius: 50%;
+    }
+
+    .whatsapp-text{
+        display: none !important;
+    }
+}
     </style>
 </head>
 <body>
     <header>
-        <div class="heading">
-            <img src="LOGO.png" style="width: 20%;">
-        </div>
+       <nav class="navbar">
+    <!-- Logo kiri -->
+    <div class="logo">
+      <a href="index.html"><img src="LOGO.png" alt="Logo" ></a>
+    </div>
+
+    <!-- Menu kanan -->
+    <ul class="nav-links">
+      <li><a href="index.html#carouselHero">Home</a></li>
+      <li><a href="index.html#carouselModels">Model</a></li>
+      <li><a href="index.html#benefits">Benefit</a></li>
+      <li><a href="#footerr">Contact</a></li>
+    </ul>
+  </nav>
     </header>
 
         <!-- Hero Carousel (Bagian Atas) -->
-    <section id="carouselHero" class="carousel slide carousel-hero" data-bs-ride="carousel" interval="3000s">
+    <section id="carouselHero" class="carousel slide carousel-hero" data-bs-ride="carousel" interval="2000s">
         <div class="carousel-inner">
             
             <div class="carousel-item">
@@ -515,26 +857,14 @@
         </div>
     </section>
 
-    <section class="flex items-center justify-center min-h-screen bg-gray-100 text-center px-4">
-        <div class="max-w-2xl bg-white p-8 rounded-2xl shadow-xl">
-          <h2 class="text-3xl font-bold text-gray-800 mb-4">
-            ⚡ Selamat Datang di <span class="text-blue-600">AION PIK</span>
-          </h2>
-          <p class="text-lg text-gray-600 italic mb-4">
-            Dealer Resmi Mobil AION – Premium, Futuristik, Ramah Lingkungan
-          </p>
-          <p class="text-gray-700 mb-6">
-            Temukan pengalaman berkendara masa depan hari ini. Mobil listrik canggih, desain elegan, dan teknologi mutakhir kini hadir di Pantai Indah Kapuk.
-          </p>
-          <ul class="list-style: none; padding-left: 0;" style="list-style: none;">
-            <li>✅ Dealer Resmi AION EV</li>
-            <li>✅ Test Drive Tersedia</li>
-            <li>✅ Cicilan Ringan & Promo Menarik</li>
-            <li>✅ Lokasi Strategis di PIK</li>
-          </ul>
+    <section class="max-w-2xl custom-bg-gradient p-8 rounded-2xl shadow-xl">
+        <div class="opening">
+            <br>
+            <br>
+            <img src="index/Selamat Datang di AION PIK (1).PNG" alt=""  style="width: 100%; height: auto;">
           <div class="flex justify-center gap-4">
             <div class="button-container">
-                <a href="https://wa.me/6288213303992?text=Halo%20saya%20ingin%20test%20drive%20mobil%20%3A%0ANama%3A%0ANo. Telfon%3A%" target="_blank" class="test-drive-btn">🚗 Book a Test Drive</a>
+                <a href="https://wa.me/6288213303992?text=Halo%20saya%20ingin%20test%20drive%20mobil%20%3A%0ANama%3A%0ANo. Telfon%3A%" target="_blank" class="test-drive-btn" style="font-size: 30px; text-decoration: none;">🚗 Book a Test Drive</a>
                 </div>
           </div>
         </div>
@@ -583,7 +913,7 @@
                         <img src="ut/image-removebg-preview (5).png" alt="HYPTEC HT">
                         <div class="carousel-caption">
                             <h3>AION UT</h3>
-                            <p style="color: black;">COMING SOON</p>
+                            <p style="color: white; text-shadow: #000;">COMING SOON</p>
                             <a href="UT.html" class="btn-primary">Jelajahi</a>
                         </div>
                     </div>
@@ -610,26 +940,81 @@
                 </div>
             </div>
         </section>
-        <section class="benefit">
+        <section class="benefit" id="benefits">
             <div class="benefit-info">
                 <h2>Benefit</h2>
                 <p>Dapatkan keuntungan tambahan dari pembelian kendaraan Anda!</p>
                 <div class="button-container">
-                    <a href="#" class="simulasi-btn"> Lihat Benefit</a>
+                    <a href="#" id="openModal" class="simulasi-btn"> Lihat Benefit</a>
                 </div>
             </div>
         </section>
     </div>
+
+    <!-- Modal Container -->
+<div id="popupModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span> <!-- Tombol X -->
+
+        <!-- Modal Slides -->
+        <div class="modal-slides">
+            <!-- Slide 1 -->
+            <div class="modal-body active">
+                <div class="modal-image">
+                    <h2>Benefit</h2>
+                    <img src="Popup/es3.jpg" alt="Mobil Listrik">
+                </div>
+                <div class="modal-text">
+                    <h3>Lifetime Warranty</h3>
+                    <p>Untuk setiap pembelian mobil AION Y Plus, AION V dan HYPTEC HT akan mendapatkan Lifetime Warranty yang mencakup baterai, motor elektrik, dan kontroler elektrik.</p>
+                    <br>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="modal-body">
+                <div class="modal-image">
+                    <h2>Benefit</h2>
+                    <img src="Popup/free-charger.jpg" alt="Baterai">
+                </div>
+                <div class="modal-text">
+                    <h3>Free Wall Charger</h3>
+                    <p>Instalasi charger dinding gratis berkapasitas 7 kW, memungkinkan mengisi daya kendaraan listrik dengan mudah langsung dari rumah. Nikmati kemudahan dan kenyamanan pengisian daya yang praktis, menjadikan penggunaan kendaraan listrik semakin efektif dan efisien.</p>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="modal-body">
+                <div class="modal-image">
+                    <h2>Benefit</h2>
+                    <img src="Popup/maintenance.jpg" alt="Interior">
+                </div>
+                <div class="modal-text">
+                    <h3>Vehicle Warranty</h3>
+                    <p>Garansi kendaraan secara menyeluruh selama 8 tahun atau hingga 160.000 kilometer, serta free service maintenance selama 5 tahun atau hingga 100.000 kilometer mencakup layanan dan pemeriksaan secara rutin agar kendaraan tetap dalam kondisi optimal.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="modal-navigation">
+            <button class="prev">&#8592;</button>
+            <span class="dots"></span>
+            <span class="dots"></span>
+            <button class="next">&#8594;</button>
+        </div>
+    </div>
+</div>
 
     <div class="map-section">
         <div class="map-container"></div>
         <div class="dealer-info">
             <h2>Lokasi Showroom</h2>
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.2553868392012!2d106.73657739999999!3d-6.111822700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1dda627b442f%3A0xb46c68d7a17e5bf!2sAION%20PIK!5e0!3m2!1sid!2sid!4v1709928859400" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.8672357110154!2d106.82588507475!3d-6.148526993838517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5e7154d817f%3A0x265a4b876cc9c6d2!2sAion%20Mabes!5e0!3m2!1sen!2sid!4v1778855348074!5m2!1sen!2sid"
                 width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            <p><strong>Alamat:</strong> Jl. Pantai Indah Selatan No.1 2, RT.2/RW.3, Kapuk Muara, Kec. Penjaringan, Jakarta, Daerah Khusus Ibukota Jakarta 14440</p>
-            <p><a href="https://www.google.com/maps/dir//aion+pik/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x2e6a1dda627b442f:0xb46c68d7a17e5bf?sa=X&ved=1t:3061&ictx=111" target="_blank">Lihat di Google Maps</a></p>
+            <p><strong>Alamat:</strong> Jl. Raya Mangga Besar No.114, RT.003/RW.010, Karang Anyar, RT.3/RW.10, Kecamatan Sawah, Besar, Kecamatan Sawah Besar, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10740</p>
+            <p><a href="https://maps.app.goo.gl/wME2DWzUdb7aPjdr6" target="_blank">Lihat di Google Maps</a></p>
         </div>
     </div>
                     
@@ -671,11 +1056,11 @@
         </div>
     </section> -->
 
-    <footer class="footer">
+    <footer class="footer" id="footerr">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="LOGO.png" alt="AION Logo" class="footer-logo">
+                    <img src="Logo1.png" alt="AION Logo" class="footer-logo">
                     <p class="call-center" style="color: #ccc;">Edrick Devano</p>
                     <i class="bi bi-whatsapp whatsapp-icon"></i>
                     <a class="phone-number" href="https://wa.me/6288213303992?text=Halo%20saya%20ingin%20menanyakan%20mengenai%20mobil%20Aion%3A%0ANama%3A%0ATipe%20Mobil%3A" style="color: #ccc; text-decoration: none;">088213303992</a>
@@ -683,9 +1068,9 @@
                 <div class="col-md-4">
                     <h5>Models</h5>
                     <ul class="footer-list">
-                        <a href="HYPTEC.html" style="color: #ccc; text-decoration: none;"><li>HYPTEC HT</li></a>
+                        <a href="HT.html" style="color: #ccc; text-decoration: none;"><li>HYPTEC HT</li></a>
                         <a href="v.html" style="color: #ccc; text-decoration: none;"><li>AION V</li></a>
-                        <a href="Y plus.html" style="color: #ccc; text-decoration: none;"><li>AION Y Plus</li></a>
+                        <a href="Y+.html" style="color: #ccc; text-decoration: none;"><li>AION Y Plus</li></a>
                         <a href="UT.html" style="color: #ccc; text-decoration: none;"><li>AION UT</li></a>
                     </ul>
                 </div>
@@ -754,6 +1139,80 @@
             alert("Email Failed: " + error);
         });
 }
+    </script>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("popupModal");
+    const closeBtn = document.querySelector(".close");
+    const learnMoreBtn = document.getElementById("openModal"); // Pakai ID agar lebih jelas
+    const slides = document.querySelectorAll(".modal-body");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+    let currentSlide = 0;
+
+    // Pastikan modal tersembunyi saat halaman dimuat
+    modal.style.display = "none";
+
+    // Fungsi untuk menampilkan popup/modal
+    function showModal() {
+        modal.style.display = "flex";
+        showSlide(currentSlide);
+    }
+
+    // Fungsi untuk menutup popup/modal
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    // Fungsi untuk menampilkan slide berdasarkan indeks
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === index);
+        });
+    }
+
+    // Fungsi untuk next slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Fungsi untuk prev slide
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Pastikan tombol "Learn More" ada sebelum menambahkan event listener
+    if (learnMoreBtn) {
+        learnMoreBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            showModal();
+        });
+    }
+
+    // Pastikan tombol "X" ada sebelum menambahkan event listener
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closeModal);
+    }
+
+    // Pastikan tombol navigasi ada sebelum menambahkan event listener
+    if (nextBtn) {
+        nextBtn.addEventListener("click", nextSlide);
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener("click", prevSlide);
+    }
+
+    // Menutup modal jika klik di luar modal-content
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+});
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
